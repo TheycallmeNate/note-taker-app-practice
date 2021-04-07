@@ -16,6 +16,16 @@
 
 
 <script>
+const notes = JSON.parse(localStorage.getItem("noteTakerApp"));
 
+const list = document.querySelector("#notes-list");
+
+notes.forEach(element => {
+    const li = document.createElement("LI");
+    const textNode = document.createTextNode(element);
+
+    li.append(textNode);
+    list.append(li);
+});
 
 </script>
