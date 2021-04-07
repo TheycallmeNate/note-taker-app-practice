@@ -22,10 +22,19 @@ var textElement = document.getElementById("note")
 
 function saveNote() {
     const trimmedText = textElement.value.trim();
+    
     if (trimmedText.length === 0) {
         return alert("This note is blank. Please type a note and click Save Note.");
     }
-    console.log(trimmedText.length);
-    console.log(trimmedText);
+
+    if (localStorage.getItem("noteTakerApp")) {
+        let notes = JSON.parse(localStorage.getItem("noteTakerApp"));
+        notes.push(trimmedText);
+        localStorage.setItem("noteTakerApp", JSON.stringify(notes));
+        return
+    }
+
+    let notes = JSON.stringify([trimmedText]);
+    localStorage.setItem("noteTakerApp", notes);
 }
 </script>
