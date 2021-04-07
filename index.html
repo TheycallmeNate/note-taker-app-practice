@@ -21,6 +21,11 @@
 var textElement = document.getElementById("note")
 
 function saveNote() {
-    
+    const trimmedText = textElement.value.trim();
+    if (trimmedText.length === 0) {
+        return alert("This note is blank. Please type a note and click Save Note.");
+    }
+    console.log(trimmedText.length);
+    console.log(trimmedText);
 }
 </script>
